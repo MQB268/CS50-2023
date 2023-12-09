@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            const correctAnswerPart1 = '1 people per 1 sheep';
+            const correctAnswerPart2 = 'switzerland';
+
+            function checkAnswer(id) {
+                const element = document.getElementById(id);
+                const informElement = document.getElementById('inform1');
+                if (element.innerText === correctAnswerPart1) {
+                    element.classList.add('correct');
+                    informElement.innerText = 'Correct!';
+                } else {
+                    element.classList.add('incorrect');
+                    informElement.innerText = 'Incorrect';
+                }
+            }
+
+            function checkAnswerInput() {
+                const element = document.getElementById('input');
+                const informElement = document.getElementById('inform2');
+                if (element.value === correctAnswerPart2) {
+                    element.classList.remove('incorrect');
+                    element.classList.add('correct');
+                    informElement.innerText = 'Correct!';
+                } else {
+                    element.classList.remove('correct');
+                    element.classList.add('incorrect');
+                    informElement.innerText = 'Incorrect';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+                <h4 id="inform1"></h4>
+                <button id="asw1" class="button" onclick="checkAnswer('asw1')">6 people per 1 sheep</button>
+                <button id="asw2" class="button" onclick="checkAnswer('asw2')">3 people per 1 sheep</button>
+                <button id="asw3" class="button" onclick="checkAnswer('asw3')">1 people per 1 sheep</button>
+                <button id="asw4" class="button" onclick="checkAnswer('asw4')">1 people per 3 sheep</button>
+                <button id="asw5" class="button" onclick="checkAnswer('asw5')">1 people per 6 sheep</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <h4 id="inform2"></h4>
+                <input id="input" />
+                <button class="button" onclick="checkAnswerInput('input')">Check Answer</button>
+            </div>
+        </div>
+    </body>
+</html>
